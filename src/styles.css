@@ -1,0 +1,101 @@
+:root {
+  /* range value */
+  --min-value: 10;
+  --max-value: 200;
+  --range-step: 5;
+
+  /* slider, progross style */
+  --range-height: 8px;
+  --slider-width: 350px;
+  --slider-bg: #e7eaf6;
+  --progress-color: #a2a8d3;
+
+  /* handle style    */
+  --handle-size: 20px;
+  --handle-effect-size: 5px;
+  --handle-color: #38598b;
+  --handle-hover-color: rgba(17, 63, 103, 0.29);
+  --handle-active-color: rgba(17, 63, 103, 0.49);
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.range-slider-container {
+  position: relative;
+}
+
+.range-slider-container .slider {
+  position: relative;
+  width: var(--slider-width);
+  height: var(--range-height);
+  border-radius: 4px;
+  background-color: var(--slider-bg);
+}
+
+.slider .progress {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+  background-color: var(--progress-color);
+}
+
+.range-slider-container .handle {
+  width: var(--handle-size);
+  height: var(--handle-size);
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: var(--handle-color);
+}
+
+.range-slider-container .range-input {
+  margin: 0;
+  top: 0;
+  left: 0;
+  position: absolute;
+  width: 100%;
+  height: var(--range-height);
+  background: none;
+  appearance: none;
+  pointer-events: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.range-input::-webkit-slider-thumb {
+  height: var(--handle-size);
+  width: var(--handle-size);
+  border-radius: 50%;
+  background: transparent;
+  pointer-events: auto;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+.range-input::-moz-range-thumb {
+  height: var(--handle-size);
+  width: var(--handle-size);
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  pointer-events: auto;
+  -moz-appearance: none;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.05);
+}
+
+/* input의 hover, active시 그림자 효과 */
+.range-input:hover::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px var(--handle-effect-size) var(--handle-hover-color);
+}
+
+.range-input:active::-webkit-slider-thumb {
+  box-shadow: 0px 0px 0px var(--handle-effect-size) var(--handle-active-color);
+}
